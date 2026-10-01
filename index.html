@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safe Spaces | Golden Valley School</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN for Dashboard -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#12519C',
+                        accent: '#27A0DB',
+                        highlight: '#F6C401',
+                    },
+                    fontFamily: {
+                        sans: ['Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar and styling tweaks */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFFFFF;
+            color: #333333;
+        }
+        .three-color-bar {
+            height: 4px;
+            background: linear-gradient(90deg, #12519C 0%, #12519C 33.3%, #27A0DB 33.3%, #27A0DB 66.6%, #F6C401 66.6%, #F6C401 100%);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 antialiased selection:bg-[#27A0DB] selection:text-white">
+
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#hero" class="flex items-center space-x-2 text-[#12519C] font-bold text-lg sm:text-xl tracking-tight">
+                <span class="w-3 h-3 rounded-full bg-[#F6C401] inline-block"></span>
+                <span>Safe Spaces | Golden Valley School</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-gray-600">
+                <a href="#hero" class="hover:text-[#12519C] transition-colors">Inicio</a>
+                <a href="#what-is" class="hover:text-[#12519C] transition-colors">¿Qué es?</a>
+                <a href="#about" class="hover:text-[#12519C] transition-colors">Sobre Nosotros</a>
+                <a href="#dashboard" class="hover:text-[#12519C] transition-colors">Dashboard</a>
+                <a href="#get-help" class="bg-[#27A0DB] text-white px-4 py-2 rounded-lg shadow hover:bg-[#12519C] transition-colors">Get Help</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-[#12519C] focus:outline-none p-2 rounded-lg hover:bg-gray-100" aria-label="Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 px-6 py-4 space-y-3">
+            <a href="#hero" class="block text-gray-700 font-medium hover:text-[#12519C] mobile-link">Inicio</a>
+            <a href="#what-is" class="block text-gray-700 font-medium hover:text-[#12519C] mobile-link">¿Qué es?</a>
+            <a href="#about" class="block text-gray-700 font-medium hover:text-[#12519C] mobile-link">Sobre Nosotros</a>
+            <a href="#dashboard" class="block text-gray-700 font-medium hover:text-[#12519C] mobile-link">Dashboard</a>
+            <a href="#get-help" class="block text-white bg-[#27A0DB] text-center py-2 rounded-lg font-medium mobile-link">Get Help</a>
+        </div>
+
+        <!-- Thin Three-Color Bar under header -->
+        <div class="three-color-bar w-full"></div>
+    </header>
+
+    <main>
+        <section id="hero" class="py-20 lg:py-32 px-6 lg:px-12 max-w-7xl mx-auto flex flex-col items-center text-center">
+            <span class="inline-flex items-center gap-1.5 py-1 px-3 rounded-full text-xs font-semibold bg-[#F6C401]/20 text-[#12519C] mb-6">
+                <span class="w-2 h-2 rounded-full bg-[#F6C401]"></span> Golden Valley School Support
+            </span>
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#12519C] max-w-4xl leading-tight mb-8">
+                Los estudiantes a veces no saben como identificar un espacio seguro
+            </h1>
+
+            <!-- Statistic Metric Box -->
+            <div class="w-full max-w-xl bg-white border-2 border-[#27A0DB]/30 rounded-2xl p-6 lg:p-8 shadow-sm mb-10 transform transition hover:scale-[1.01]">
+                <div class="flex items-center justify-center space-x-3 mb-2">
+                    <svg class="w-6 h-6 text-[#27A0DB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                    <span class="text-sm font-bold tracking-wider text-gray-500 uppercase">Estadística de Identificación</span>
+                </div>
+                <div class="text-4xl sm:text-5xl font-black text-[#12519C] mb-2">42%</div>
+                <p class="text-gray-600 text-sm sm:text-base">
+                    Cual es la cantidad de estudiantes que logran identificar su espacio seguro dentro de la institución.
+                </p>
+            </div>
+
+            <!-- Get Help Button -->
+            <a href="#get-help" class="bg-[#27A0DB] hover:bg-[#12519C] text-white font-bold text-lg px-8 py-4 rounded-xl shadow-lg transition duration-300 flex items-center space-x-3">
+                <span>Get help</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </a>
+        </section>
+
+        <section id="what-is" class="py-20 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-[#12519C] mb-6">What is a Safe Space</h2>
+                <p class="text-lg text-gray-700 leading-relaxed bg-gray-50 p-6 rounded-2xl border border-gray-100 shadow-sm">
+                    A safe space is an environment intended to be free of bias, conflict, criticism, or potentially threatening actions, ideas, or conversations.
+                </p>
+            </div>
+
+            <!-- Three Signs Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Sign 1 -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:border-[#27A0DB] transition duration-300 flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-2xl bg-[#27A0DB]/10 text-[#27A0DB] flex items-center justify-center mb-6 text-2xl font-bold">
+                        👥
+                    </div>
+                    <h3 class="text-xl font-bold text-[#12519C] mb-3">Human presence</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Accompanying peers and empathetic listeners who validate emotions and provide dependable support.
+                    </p>
+                    <span class="mt-6 w-8 h-1 bg-[#F6C401] rounded-full"></span>
+                </div>
+
+                <!-- Sign 2 -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:border-[#27A0DB] transition duration-300 flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-2xl bg-[#27A0DB]/10 text-[#27A0DB] flex items-center justify-center mb-6 text-2xl font-bold">
+                        🤝
+                    </div>
+                    <h3 class="text-xl font-bold text-[#12519C] mb-3">Congeniality</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        A friendly, warm, and welcoming atmosphere where cordiality and mutual respect thrive naturally.
+                    </p>
+                    <span class="mt-6 w-8 h-1 bg-[#F6C401] rounded-full"></span>
+                </div>
+
+                <!-- Sign 3 -->
+                <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:border-[#27A0DB] transition duration-300 flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-2xl bg-[#27A0DB]/10 text-[#27A0DB] flex items-center justify-center mb-6 text-2xl font-bold">
+                        🛡️
+                    </div>
+                    <h3 class="text-xl font-bold text-[#12519C] mb-3">Humane protection</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Safeguarding physical and emotional well-being, ensuring students feel secure from judgment or harm.
+                    </p>
+                    <span class="mt-6 w-8 h-1 bg-[#F6C401] rounded-full"></span>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-[#12519C] mb-4">About us</h2>
+                <p class="text-gray-600">The creators and advocates behind Safe Spaces at Golden Valley School.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Matias Calvo Card -->
+                <div class="bg-gray-50 border border-gray-200 rounded-3xl p-8 shadow-sm flex flex-col justify-between hover:border-[#27A0DB] transition">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="w-12 h-12 rounded-full bg-[#12519C] text-white flex items-center justify-center font-bold text-lg">MC</span>
+                            <span class="px-3 py-1 bg-[#F6C401]/30 text-[#12519C] rounded-full text-xs font-semibold">14 years old</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-[#12519C] mb-2">Matias Calvo</h3>
+                        <p class="text-sm text-gray-500 font-medium mb-4">Golden Valley School Student</p>
+                        <p class="text-gray-700 text-sm leading-relaxed mb-6">
+                            Matias is a 14 years old student in Golden Valley School. He likes cheese, dogs, to swim, and he likes Sabrina Carpenter. He lives in Llorente, Tibás.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-200 text-xs font-medium text-gray-600">
+                        <span class="bg-white px-3 py-1 rounded-full border border-gray-200">🧀 Cheese</span>
+                        <span class="bg-white px-3 py-1 rounded-full border border-gray-200">🐶 Dogs</span>
+                        <span class="bg-white px-3 py-1 rounded-full border border-gray-200">🏊‍♂️️ Swim</span>
+                        <span class="bg-white px-3 py-1 rounded-full border border-gray-200">🎶 Sabrina Carpenter</span>
+                        <span class="bg-white px-3 py-1 rounded-full border border-gray-200">📍 Llorente, Tibás</span>
+                    </div>
+                </div>
+
+                <!-- Amanda Granja Card -->
+                <div class="bg-gray-50 border border-gray-200 rounded-3xl p-8 shadow-sm flex flex-col justify-between hover:border-[#27A0DB] transition">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="w-12 h-12 rounded-full bg-[#27A0DB] text-white flex items-center justify-center font-bold text-lg">AG</span>
+                            <span class="px-3 py-1 bg-[#F6C401]/30 text-[#12519C] rounded-full text-xs font-semibold">14 years old</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-[#12519C] mb-2">Amanda Granja</h3>
+                        <p class="text-sm text-gray-500 font-medium mb-4">Golden Valley School Student</p>
+                        <p class="text-gray-700 text-sm leading-relaxed mb-6">
+                            Amanda is a 14 years old student in Golden Valley School. She likes to play soccer.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-200 text-xs font-medium text-gray-600">
+                        <span class="bg-white px-3 py-1 rounded-full border border-gray-200">⚽ Play Soccer</span>
+                        <span class="bg-white px-3 py-1 rounded-full border border-gray-200">🏫 Golden Valley School</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="dashboard" class="py-20 px-6 lg:px-12 max-w-7xl mx-auto border-t border-gray-100">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-[#12519C] mb-4">Dashboard</h2>
+                <p class="text-gray-600">Visual analytics and survey insights on student safety and space identification.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Chart 1: Xolum chart (Column Chart) -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm flex flex-col">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-bold text-[#12519C] text-lg">Xolum chart</h3>
+                        <span class="text-xs bg-[#27A0DB]/10 text-[#27A0DB] px-2.5 py-1 rounded-full font-semibold">Sample data</span>
+                    </div>
+                    <div class="relative w-full h-64 flex items-center justify-center">
+                        <canvas id="xolumChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Chart 2: Pictoral chart (Bar representation) -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm flex flex-col">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-bold text-[#12519C] text-lg">Pictoral chart</h3>
+                        <span class="text-xs bg-[#27A0DB]/10 text-[#27A0DB] px-2.5 py-1 rounded-full font-semibold">Sample data</span>
+                    </div>
+                    <div class="relative w-full h-64 flex items-center justify-center">
+                        <canvas id="pictoralChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Chart 3: Pie chart -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm flex flex-col">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-bold text-[#12519C] text-lg">Pie chart</h3>
+                        <span class="text-xs bg-[#27A0DB]/10 text-[#27A0DB] px-2.5 py-1 rounded-full font-semibold">Sample data</span>
+                    </div>
+                    <div class="relative w-full h-64 flex items-center justify-center">
+                        <canvas id="pieChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="get-help" class="py-20 px-6 lg:px-12 max-w-5xl mx-auto border-t border-gray-100">
+            <div class="bg-[#12519C] text-white rounded-3xl p-8 sm:p-12 shadow-xl relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-64 h-64 rounded-full bg-[#27A0DB]/20 pointer-events-none blur-2xl"></div>
+                
+                <div class="max-w-2xl relative z-10">
+                    <span class="inline-block px-3 py-1 rounded-full bg-[#F6C401] text-[#12519C] font-bold text-xs uppercase tracking-wider mb-4">
+                        Wellness Support
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-6">Get Help & Support</h2>
+                    <p class="text-lg text-gray-100 mb-8 leading-relaxed">
+                        If you don't feel safe, talk to the counselor (<span class="font-semibold underline">Wellness department</span>). We are here to listen and help you through anything.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- Email -->
+                        <a href="mailto:cce@goldenvalley.ed.cr" class="bg-white/10 hover:bg-white/20 transition p-4 rounded-2xl border border-white/20 flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-[#27A0DB] flex items-center justify-center text-white">
+                                ✉️
+                            </div>
+                            <div>
+                                <span class="block text-xs text-gray-300 uppercase">Email Counselor</span>
+                                <span class="font-semibold text-sm sm:text-base break-all">cce@goldenvalley.ed.cr</span>
+                            </div>
+                        </a>
+
+                        <!-- Phone -->
+                        <a href="tel:28444992" class="bg-white/10 hover:bg-white/20 transition p-4 rounded-2xl border border-white/20 flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-[#27A0DB] flex items-center justify-center text-white">
+                                📞
+                            </div>
+                            <div>
+                                <span class="block text-xs text-gray-300 uppercase">Phone Support</span>
+                                <span class="font-semibold text-base">2844-4992</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Emergency 911 -->
+                    <div class="mt-6 p-4 rounded-2xl bg-[#F6C401] text-[#12519C] flex items-center justify-between font-bold">
+                        <div class="flex items-center space-x-3">
+                            <span class="text-2xl">🚨</span>
+                            <span>Immediate Emergency Assistance</span>
+                        </div>
+                        <a href="tel:911" class="bg-[#12519C] text-white px-5 py-2 rounded-xl text-sm hover:bg-black transition">Call 911</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-50 border-t border-gray-200 mt-20 py-12 px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between text-sm text-gray-600 space-y-4 sm:space-y-0">
+            <div class="flex items-center space-x-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#12519C]"></span>
+                <span class="font-bold text-[#12519C]">Safe Spaces at Golden Valley School</span>
+            </div>
+            <div>
+                Golden Valley School, 2026
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Initialize Chart.js Charts on Window Load
+        window.addEventListener('load', () => {
+            // 1. Xolum chart (Column Chart / Bar Chart)
+            const ctxXolum = document.getElementById('xolumChart').getContext('2d');
+            new Chart(ctxXolum, {
+                type: 'bar',
+                data: {
+                    labels: ['Aula', 'Biblioteca', 'Wellness', 'Patio', 'Cafetería'],
+                    datasets: [{
+                        label: 'Identificación (%)',
+                        data: [42, 68, 85, 30, 55],
+                        backgroundColor: '#12519C',
+                        borderRadius: 6,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: { beginAtZero: true, max: 100 }
+                    }
+                }
+            });
+
+            // 2. Pictoral chart (Styled Horizontal Bar Chart)
+            const ctxPictoral = document.getElementById('pictoralChart').getContext('2d');
+            new Chart(ctxPictoral, {
+                type: 'bar',
+                data: {
+                    labels: ['Presencia', 'Congenialidad', 'Protección'],
+                    datasets: [{
+                        label: 'Nivel percibido',
+                        data: [78, 88, 92],
+                        backgroundColor: '#27A0DB',
+                        borderRadius: 6,
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: { beginAtZero: true, max: 100 }
+                    }
+                }
+            });
+
+            // 3. Pie chart
+            const ctxPie = document.getElementById('pieChart').getContext('2d');
+            new Chart(ctxPie, {
+                type: 'pie',
+                data: {
+                    labels: ['Seguro', 'Neutral', 'Inseguro'],
+                    datasets: [{
+                        data: [60, 25, 15],
+                        backgroundColor: ['#12519C', '#27A0DB', '#F6C401'],
+                        borderWidth: 2,
+                        borderColor: '#FFFFFF'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
